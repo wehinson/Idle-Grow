@@ -57,7 +57,7 @@ class clickUpgrade {
 }
 
 //This is in charge of actually buying a click upgrade 
-function buyClickUpgrade(upgrade) {
+function buyClickUpgrade(upgrade, button) {
 	if (upgrade.price > totalFunds) {
 		alert("You cannot afford this upgrade");
 	}
@@ -66,6 +66,7 @@ function buyClickUpgrade(upgrade) {
 		perClick = perClick + upgrade.value;
 		upgrade.num ++;
 		upgrade.price = upgrade.price * upgrade.mult;
+		button.querySelector(".price").textContent = upgrade.price;
 		document.getElementById("perClick").innerHTML = "Per Click: " + numConvert(perClick);
 
 	}
